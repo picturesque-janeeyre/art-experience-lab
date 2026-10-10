@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>수강생의 목소리 — 미술 경험치 연구소</title>
+  <meta name="description" content="강연과 수업에 참여한 분들이 남기고 공개에 동의한 후기.">
+  <meta property="og:title" content="수강생의 목소리 — 미술 경험치 연구소">
+  <meta property="og:description" content="강연과 수업에 참여한 분들이 남기고 공개에 동의한 후기.">
+  <meta name="theme-color" content="#561E26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300..700&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap">
+        <p class="script-title" aria-hidden="true">Voices</p>
+        <h1>수강생의 목소리</h1>
+        <p class="lede">강연과 수업에 참여한 분들이 직접 남기고 공개에 동의한 후기만, 확인을 거쳐 싣습니다.</p>
+      </div>
+    </header>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap">
+        <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:end;margin-bottom:40px">
+          <div class="field" style="margin:0;min-width:min(340px,100%)">
+            <label for="voice-filter">강연별로 보기</label>
+            <select id="voice-filter" data-program-options="filter"><option value="">전체 후기</option></select>
+          </div>
+          <a class="btn" href="/voices/write">나도 후기 남기기</a>
+        </div>
+        <div data-voices data-limit="60"></div>
+      </div>
+    </section>
+
+    <section class="cta-band on-wine" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="script-title" aria-hidden="true">Correspondence</p>
+        <h2 id="cta-title">함께할 미술 이야기를 제안해 주세요.</h2>
+        <a class="btn" href="/contact">강연·집필·협업 문의하기</a>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

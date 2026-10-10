@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>후기 남기기 — 미술 경험치 연구소</title>
+  <meta name="description" content="참여한 강연과 수업의 한 줄 후기를 남겨 주세요.">
+  <meta property="og:title" content="후기 남기기 — 미술 경험치 연구소">
+  <meta property="og:description" content="참여한 강연과 수업의 한 줄 후기를 남겨 주세요.">
+  <meta name="theme-color" content="#561E26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300..700&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <header class="page-head" style="padding-bottom:32px">
+      <div class="wrap">
+        <p class="script-title" aria-hidden="true">Leave a note</p>
+        <h1>강연, 어떠셨나요?</h1>
+        <p class="lede">한 줄이면 충분해요. 1분이면 끝납니다.</p>
+      </div>
+    </header>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap" style="max-width:760px">
+        <h2 class="shelf-label" style="font-size:18px">먼저 남겨진 후기</h2>
+        <div data-voices data-limit="3" style="margin-bottom:48px"></div>
+
+        <div class="form-panel">
+          <form id="review-form" novalidate>
+            <div class="field">
+              <label for="program_id">참여한 강연 또는 프로그램</label>
+              <select id="program_id" name="program_id" data-program-options="form" required><option value="">골라 주세요</option></select>
+            </div>
+            <div class="field" id="program-other-wrap" hidden>
+              <label for="program_other">강연 이름</label>
+              <input type="text" id="program_other" name="program_other" maxlength="80" placeholder="예: 도서관 인문학 강연">
+            </div>
+            <div class="field">
+              <label for="period">참여 시기<span class="opt">선택</span></label>
+              <input type="month" id="period" name="period" min="2015-01">
+            </div>
+            <div class="field">
+              <label for="one_line">한 줄 후기 <span class="counter"></span></label>
+              <textarea id="one_line" name="one_line" maxlength="100" rows="2" style="min-height:84px" required placeholder="강연을 한 문장으로 남긴다면?"></textarea>
+            </div>
+            <div class="field">
+              <label for="memorable">기억에 남는 점<span class="opt">선택</span> <span class="counter"></span></label>
+              <textarea id="memorable" name="memorable" maxlength="300" rows="3" style="min-height:110px" placeholder="떠오르는 그림, 장면, 이야기가 있다면 적어 주세요."></textarea>
+            </div>
+            <div class="field">
+              <label for="display_name">표시 이름 또는 별명<span class="opt">선택</span></label>
+              <input type="text" id="display_name" name="display_name" maxlength="20" placeholder="비워 두면 ‘익명 수강생’으로 보여요">
+              <p class="hint">실명이나 연락처처럼 나를 알아볼 수 있는 내용은 적지 말아 주세요.</p>
+            </div>
+            <fieldset class="field">
+              <legend>후기 공개</legend>
+              <label class="choice"><input type="radio" name="consent_public" value="yes"><span>사이트 공개에 동의합니다. 확인을 거쳐 ‘수강생의 목소리’에 실려요.</span></label>
+              <label class="choice"><input type="radio" name="consent_public" value="no"><span>공개하지 않고 작가에게만 전합니다.</span></label>
+            </fieldset>
+            <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn" type="submit" style="width:100%">후기 보내기</button>
+            <p class="form-msg" role="alert"></p>
+            <p class="muted" style="font-size:13px;margin-top:14px">이 후기 폼은 이름·연락처 같은 개인정보를 받지 않습니다.</p>
+          </form>
+          <div class="done" id="review-done" hidden>
+            <h2>후기가 잘 전달되었어요.</h2>
+            <p data-done-text></p>
+            <div class="btn-row" style="justify-content:center;margin-top:24px">
+              <a class="btn btn-line" href="/voices">다른 후기 보기</a>
+              <a class="btn btn-line" href="/library">작가의 서재 둘러보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

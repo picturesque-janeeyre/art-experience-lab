@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>미술 경험치 연구소 — ART EXPERIENCE LAB</title>
+  <meta name="description" content="미술 전문 저술가 김수정의 미술 인문학 강연·집필·교육 프로그램. 그림을 만나고, 취향을 발견하고, 생각을 남기다.">
+  <meta property="og:title" content="미술 경험치 연구소">
+  <meta property="og:description" content="당신의 미술 경험치는 얼마인가요? 미술 인문학 강연·집필·교육 프로그램 협업 문의">
+  <meta property="og:image" content="https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_(1632-1675)_-_The_Girl_With_The_Pearl_Earring_(1665).jpg?width=1200">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#561E26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300..700&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <!-- 01 첫 화면 -->
+    <section class="hero on-wine" aria-labelledby="hero-title">
+      <div class="wrap">
+        <div class="hero-text">
+          <p class="hero-name">미술 경험치 연구소</p>
+          <h1 id="hero-title">당신의 미술 경험치는<br>얼마인가요?</h1>
+          <p class="lede">그림을 보는 경험이 쌓이면 세상을 바라보는 눈도 달라집니다.</p>
+          <div class="btn-row">
+            <a class="btn" href="/contact">강연 및 협업 문의</a>
+            <a class="btn btn-line" href="#taste">내 미술 취향 발견하기</a>
+          </div>
+        </div>
+        <figure class="hero-art" style="margin:0">
+          <div class="frame">
+            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_(1632-1675)_-_The_Girl_With_The_Pearl_Earring_(1665).jpg?width=900"
+                 alt="요하네스 페르메이르의 〈진주 귀걸이를 한 소녀〉. 어두운 배경 앞에서 푸른 터번을 두른 소녀가 어깨 너머로 돌아본다." width="720" height="900" fetchpriority="high">
+          </div>
+          <p class="script-title" aria-hidden="true">Art Experience<br>Lab</p>
+          <figcaption class="caption">요하네스 페르메이르, 〈진주 귀걸이를 한 소녀〉, 1665년경, 마우리츠하위스 미술관</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 미술 취향 발견 -->
+    <section class="section" id="taste" aria-labelledby="taste-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="taste-title">두 그림 중, 더 오래<br>머물고 싶은 쪽은 어디인가요?</h2>
+          <p class="lede">정답은 없습니다. 끌리는 그림을 고르다 보면 내가 좋아하는 색, 구도, 소재와 분위기가 조금씩 보이기 시작해요.</p>
+        </div>
+        <div class="duel">
+          <button type="button" aria-pressed="false" data-title="〈인상, 해돋이〉">
+            <div class="pic"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Claude_Monet,_Impression,_soleil_levant.jpg?width=900" alt="클로드 모네의 〈인상, 해돋이〉. 푸른 안개 낀 항구 위로 주황빛 해가 떠 있다." width="900" height="700"></div>
+            <p class="caption">클로드 모네, 〈인상, 해돋이〉, 1872, 마르모탕 모네 미술관</p>
+          </button>
+          <button type="button" aria-pressed="false" data-title="〈별이 빛나는 밤〉">
+            <div class="pic"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Van_Gogh_-_Starry_Night_-_Google_Art_Project.jpg?width=900" alt="빈센트 반 고흐의 〈별이 빛나는 밤〉. 소용돌이치는 밤하늘 아래 마을과 사이프러스 나무가 있다." width="900" height="712"></div>
+            <p class="caption">빈센트 반 고흐, 〈별이 빛나는 밤〉, 1889, 뉴욕 현대미술관</p>
+          </button>
+        </div>
+        <div class="duel-result" id="duel-result" hidden aria-live="polite">
+          <p><b data-pick></b>에 마음이 갔군요. 이런 비교를 열 번쯤 이어 가면, 내가 끌리는 그림의 결이 한 장의 취향 카드로 정리됩니다.</p>
+          <p class="muted">미술 취향 연구소는 곧 문을 엽니다.</p>
+        </div>
+        <div class="section-foot">
+          <button class="btn btn-line" type="button" aria-disabled="true" disabled>나의 미술 취향 알아보기</button>
+          <p class="soon">공개 예정</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 오늘의 그림 -->
+    <section class="section" aria-labelledby="today-title">
+      <div class="wrap today">
+        <figure style="margin:0">
+          <div class="frame frame-rect">
+            <img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Danwon-Ssireum.jpg?width=1000" alt="김홍도의 〈씨름〉. 둥글게 둘러앉은 구경꾼들 가운데서 두 사람이 씨름을 하고 있다." width="1000" height="1180">
+          </div>
+          <figcaption class="caption">김홍도, 〈씨름〉, 《단원풍속도첩》 중, 18세기 후반, 국립중앙박물관</figcaption>
+        </figure>
+        <div>
+          <h2 id="today-title" style="margin-bottom:28px">오늘의 그림</h2>
+          <blockquote>씨름판을 둘러싼 사람들 가운데, 승부가 기울었다는 걸 가장 먼저 알아챈 사람은 누구일까요?</blockquote>
+          <p class="muted">얼굴과 손, 몸이 기운 방향을 천천히 따라가 보세요. 한 점의 그림을 오래 보는 일이 미술 경험치를 쌓는 첫걸음입니다.</p>
+          <button class="btn btn-line" type="button" aria-disabled="true" disabled style="margin-top:12px">오늘의 그림 감상하기</button>
+          <p class="soon">공개 예정</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04 작가의 서재 -->
+    <section class="section" aria-labelledby="library-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="library-title">작가의 서재</h2>
+          <p class="lede">미술 산문과 감상 교양서 여섯 권, 집필에 참여한 중학교 미술 교과서 두 권, 그리고 곧 나올 한 권.</p>
+        </div>
+        <div class="shelf-wrap"><div class="shelf" data-shelf="book,textbook,upcoming"></div></div>
+        <a class="btn btn-line" href="/library">저서와 교과서 모두 보기</a>
+      </div>
+    </section>
+
+    <!-- 05 강연과 교육 -->
+    <section class="section" aria-labelledby="programs-title">
+      <div class="wrap two-col">
+        <aside>
+          <h2 id="programs-title" style="margin-bottom:20px">강연과 교육</h2>
+          <p class="lede">도서관과 학교, 교육청 연수에서 그림을 읽는 법을 이야기해 왔습니다. 대상과 일정에 맞춰 프로그램을 함께 구성합니다.</p>
+          <a class="btn btn-line" href="/programs" style="margin-top:12px">강연 프로그램 살펴보기</a>
+        </aside>
+        <div>
+          <div data-programs="compact" style="border-top:1px solid var(--line)"></div>
+          <ul class="inst-band" aria-label="강연한 곳">
+            <li>서울대 행복연구소</li><li>정읍시립중앙도서관</li><li>송파도서관</li><li>광진정보도서관</li><li>용인 영덕도서관</li><li>울진도서관</li><li>매탄고</li><li>양일고</li><li>서울특별시교육청</li><li>인천동부교육청</li><li>전라남도교육청</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 수강생의 목소리 -->
+    <section class="section" aria-labelledby="voices-title">
+      <div class="wrap">
+        <div class="split-head">
+          <h2 id="voices-title">수강생의 목소리</h2>
+          <p class="lede">강연과 수업에 참여한 분들이 직접 남기고, 공개에 동의한 후기입니다.</p>
+        </div>
+        <div data-voices data-limit="6"></div>
+        <div class="btn-row section-foot">
+          <a class="btn btn-line" href="/voices">다른 후기 보기</a>
+          <a class="btn btn-line" href="/voices/write">나도 후기 남기기</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 07 협업 문의 -->
+    <section class="cta-band on-wine" aria-labelledby="cta-title">
+      <div class="wrap">
+        <p class="script-title" aria-hidden="true">Correspondence</p>
+        <h2 id="cta-title">함께할 미술 이야기를 제안해 주세요.</h2>
+        <ul class="types">
+          <li>미술 인문학 강연</li><li>학교 출강</li><li>교사 연수</li><li>저자와의 만남</li><li>원고 집필</li><li>교과서 및 교육 콘텐츠 집필</li><li>미술교육 프로그램 개발</li>
+        </ul>
+        <a class="btn" href="/contact">강연·집필·협업 문의하기</a>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="book-detail" id="book-detail" aria-label="책 정보"><button class="detail-close" type="button" aria-label="닫기">×</button><div class="detail-body"></div></dialog>
+  <footer id="site-footer"></footer>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>

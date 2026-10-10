@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>관리자 — 미술 경험치 연구소</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <style>
+    :root { --bg: #F4EEE8; --card: #FFFCF8; --ink: #2F2326; --muted: #87736C; --line: #DDCFC5; --wine: #561E26; --claret: #7C2E37; --late: #B3261E; }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.6 "Pretendard Variable", Pretendard, -apple-system, "Malgun Gothic", sans-serif; word-break: keep-all; }
+    header { background: var(--wine); color: #F1E6DA; padding: 14px 18px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 5; }
+    header b { font-size: 17px; }
+    header button { margin-left: auto; background: none; border: 1px solid rgba(241,230,218,.5); color: inherit; border-radius: 8px; padding: 6px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+    main { max-width: 820px; margin: 0 auto; padding: 18px 16px 60px; }
+    .login { max-width: 360px; margin: 80px auto; background: var(--card); padding: 28px; border-radius: 12px; border: 1px solid var(--line); }
+    .login h1 { font-size: 20px; margin: 0 0 16px; }
+    input, select { width: 100%; font: inherit; padding: 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--claret); background: var(--claret); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    .btn.line { background: transparent; color: var(--claret); }
+    .btn.small { min-height: 40px; padding: 6px 14px; font-size: 15px; }
+    .err { color: var(--late); margin: 10px 0 0; min-height: 1.4em; }
+    .tabs { display: flex; gap: 8px; margin-bottom: 16px; }
+    .tabs button { flex: 1; min-height: 48px; border-radius: 10px; border: 1px solid var(--line); background: var(--card); font: inherit; font-weight: 600; cursor: pointer; color: var(--ink); }
+    .tabs button[aria-selected="true"] { background: var(--wine); color: #F1E6DA; border-color: var(--wine); }
+    .summary { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+    .summary div { flex: 1 1 140px; background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+    .summary b { display: block; font-size: 30px; line-height: 1.1; color: var(--wine); }
+    .summary .late b { color: var(--late); }
+    .tools { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-bottom: 14px; }
+    .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+    .filters button { min-height: 40px; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); background: var(--card); font: inherit; font-size: 15px; cursor: pointer; color: var(--ink); }
+    .filters button[aria-pressed="true"] { border-color: var(--claret); color: var(--claret); font-weight: 600; }
+    .tools .right { margin-left: auto; display: flex; align-items: center; gap: 8px; }
+    .note { font-size: 13px; color: var(--muted); }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 12px; }
+    .card.late { border: 2px solid var(--late); }
+    .card h3 { margin: 0 0 2px; font-size: 18px; }
+    .meta { font-size: 14px; color: var(--muted); }
+    .row { margin: 8px 0 0; font-size: 15px; }
+    .row span { color: var(--muted); display: inline-block; min-width: 84px; }
+    .msg { white-space: pre-wrap; background: #F7F1EB; border-radius: 8px; padding: 10px 12px; margin: 10px 0 0; font-size: 15px; }
+    .copy { background: none; border: 0; padding: 0; font: inherit; color: var(--claret); text-decoration: underline; cursor: pointer; text-align: left; }
+    .status { display: flex; gap: 6px; margin-top: 14px; flex-wrap: wrap; }
+    .status button { flex: 1 1 0; min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: #fff; font: inherit; font-size: 15px; cursor: pointer; color: var(--ink); }
+    .status button[aria-pressed="true"] { background: var(--wine); color: #F1E6DA; border-color: var(--wine); }
+    .status button:disabled { opacity: .35; cursor: not-allowed; }
+    .status .del { flex: 0 0 auto; padding: 0 14px; color: var(--late); border-color: #E7C3C0; }
+    .badge { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 999px; border: 1px solid currentColor; margin-left: 6px; vertical-align: 2px; }
+    .badge.no { color: var(--muted); }
+    .badge.yes { color: #2F6B3A; }
+    .badge.late { color: var(--late); }
+    .quote { font-size: 18px; margin: 8px 0 0; }
+    .empty { text-align: center; color: var(--muted); padding: 40px 0; }
+    .toast { position: fixed; left: 50%; bottom: 20px; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 10px 18px; border-radius: 999px; font-size: 15px; }
+  </style>
+</head>
+<body>
+  <header><b>미술 경험치 연구소 · 관리</b><button id="logout" type="button" hidden>잠그기</button></header>
+  <main>
+    <form class="login" id="login">
+      <h1>관리자 비밀번호</h1>
+      <label for="pw" class="note">비밀번호를 입력하면 문의와 후기를 볼 수 있어요.</label>
+      <input id="pw" type="password" autocomplete="current-password" required style="margin-top:8px">
+      <p class="err" id="login-err" role="alert"></p>
+      <button class="btn" type="submit" style="width:100%">열기</button>
+    </form>
+
+    <section id="app" hidden>
+      <div class="tabs" role="tablist">
+        <button type="button" role="tab" data-view="inquiries" aria-selected="true">협업 문의</button>
+        <button type="button" role="tab" data-view="reviews" aria-selected="false">수강 후기</button>
+      </div>
+      <div class="summary" id="summary"></div>
+      <div class="tools">
+        <div class="filters" id="filters"></div>
+        <div class="right" id="csv-wrap"><button class="btn line small" type="button" id="csv">CSV 내려받기</button></div>
+      </div>
+      <p class="note" id="csv-note">CSV에는 개인정보가 들어 있어요. 보관에 주의하세요.</p>
+      <div id="list"></div>
+    </section>
+  </main>
+  <div class="toast" id="toast" hidden></div>
+
+  <script>
+  (() => {
+    const $ = (s) => document.querySelector(s);
+    const esc = (v) => String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+    const KEY = 'ael-admin';
+    const STATUSES = { inquiries: ['새 문의', '연락함', '완료'], reviews: ['대기', '승인', '숨김'] };
+    let view = 'inquiries', filter = '전체', rows = [];
+
+    const pw = () => sessionStorage.getItem(KEY) || '';
+    const api = async (method, query = '', data) => {
+      const r = await fetch('/api/admin' + query, {
+        method, headers: { 'x-admin-password': pw(), ...(data ? { 'Content-Type': 'application/json' } : {}) },
+        body: data ? JSON.stringify(data) : undefined,
+      });
+      const j = await r.json().catch(() => ({}));
+      if (r.status === 401) { lock(); throw new Error(j.error || '비밀번호가 맞지 않아요.'); }
+      if (!r.ok) throw new Error(j.error || '문제가 생겼어요.');
+      return j;
+    };
+    const toast = (t) => { const el = $('#toast'); el.textContent = t; el.hidden = false; clearTimeout(toast.t); toast.t = setTimeout(() => (el.hidden = true), 2200); };
+    const fmt = (iso) => { const d = new Date(iso); return `${d.getFullYear()}.${d.getMonth() + 1}.${d.getDate()} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; };
+    const isLate = (r) => view === 'inquiries' && r.status === '새 문의' && Date.now() - new Date(r.created_at) > 48 * 3600 * 1000;
+
+    function lock(msg) {
+      sessionStorage.removeItem(KEY);
+      $('#app').hidden = true; $('#logout').hidden = true; $('#login').hidden = false;
+      $('#login-err').textContent = msg || '';
+      $('#pw').value = ''; $('#pw').focus();
+    }
+
+    async function load() {
+      try {
+        rows = (await api('GET', `?view=${view}`)).rows || [];
+        $('#login').hidden = true; $('#app').hidden = false; $('#logout').hidden = false;
+        draw();
+      } catch (e) { if ($('#app').hidden) $('#login-err').textContent = e.message; else toast(e.message); }
+    }
+
+    function draw() {
+      const st = STATUSES[view];
+      const count = (s) => rows.filter((r) => r.status === s).length;
+      const late = rows.filter(isLate).length;
+      $('#summary').innerHTML = view === 'inquiries'
+        ? `<div><b>${count('새 문의')}</b>새 문의</div>${late ? `<div class="late"><b>${late}</b>답장 늦은 문의 (48시간 넘음)</div>` : ''}<div><b>${rows.length}</b>전체</div>`
+        : `<div><b>${rows.filter((r) => r.status === '대기' && r.consent_public).length}</b>승인 기다리는 공개 후기</div><div><b>${count('승인')}</b>게시 중</div><div><b>${rows.length}</b>전체</div>`;
+      $('#filters').innerHTML = ['전체', ...st].map((s) => `<button type="button" aria-pressed="${s === filter}" data-filter="${s}">${s}</button>`).join('');
+      $('#csv-wrap').hidden = $('#csv-note').hidden = view !== 'inquiries';
+      const list = filter === '전체' ? rows : rows.filter((r) => r.status === filter);
+      if (!list.length) { $('#list').innerHTML = `<p class="empty">${view === 'inquiries' ? '아직 문의가 없어요.' : '아직 후기가 없어요.'}</p>`; return; }
+      $('#list').innerHTML = list.map((r) => view === 'inquiries' ? inquiryCard(r) : reviewCard(r)).join('');
+    }
+
+    function statusButtons(r) {
+      return `<div class="status">${STATUSES[view].map((s) => {
+        const block = view === 'reviews' && s === '승인' && !r.consent_public;
+        return `<button type="button" data-id="${r.id}" data-status="${s}" aria-pressed="${r.status === s}" ${block ? 'disabled title="공개에 동의하지 않은 후기는 게시할 수 없어요"' : ''}>${s}</button>`;
+      }).join('')}${view === 'reviews' ? `<button type="button" class="del" data-del="${r.id}">삭제</button>` : ''}</div>`;
+    }
+
+    function inquiryCard(r) {
+      const rowsHtml = [['의뢰 유형', r.inquiry_type], ['희망 일정', r.schedule], ['대상·인원', r.audience], ['희망 주제', r.topic], ['예상 예산', r.budget]]
+        .filter(([, v]) => v).map(([k, v]) => `<p class="row"><span>${k}</span>${esc(v)}</p>`).join('');
+      return `<article class="card ${isLate(r) ? 'late' : ''}">
+        <h3>${esc(r.org)}${isLate(r) ? '<span class="badge late">48시간 넘음</span>' : ''}</h3>
+        <p class="meta">${fmt(r.created_at)} · ${esc(r.name)}</p>
+        <p class="row"><span>이메일</span><button class="copy" type="button" data-copy="${esc(r.email)}">${esc(r.email)}</button></p>
+        ${r.phone ? `<p class="row"><span>연락처</span><button class="copy" type="button" data-copy="${esc(r.phone)}">${esc(r.phone)}</button></p>` : ''}
+        ${rowsHtml}
+        <p class="msg">${esc(r.message)}</p>
+        ${statusButtons(r)}
+      </article>`;
+    }
+
+    function reviewCard(r) {
+      return `<article class="card">
+        <p class="meta">${fmt(r.created_at)} · ${esc(r.program)}${r.period ? ` · ${esc(r.period)}` : ''}
+          ${r.consent_public ? '<span class="badge yes">공개 동의</span>' : '<span class="badge no">비공개 (작가에게만)</span>'}</p>
+        <p class="quote">“${esc(r.one_line)}”</p>
+        ${r.memorable ? `<p class="msg">${esc(r.memorable)}</p>` : ''}
+        <p class="meta" style="margin-top:8px">표시 이름: ${esc(r.display_name || '익명 수강생')}</p>
+        ${statusButtons(r)}
+      </article>`;
+    }
+
+    $('#login').addEventListener('submit', (e) => {
+      e.preventDefault();
+      sessionStorage.setItem(KEY, $('#pw').value);
+      $('#login-err').textContent = '';
+      load();
+    });
+    $('#logout').addEventListener('click', () => lock());
+    document.querySelector('.tabs').addEventListener('click', (e) => {
+      const b = e.target.closest('[data-view]'); if (!b) return;
+      view = b.dataset.view; filter = '전체';
+      document.querySelectorAll('.tabs button').forEach((x) => x.setAttribute('aria-selected', String(x === b)));
+      load();
+    });
+    $('#filters').addEventListener('click', (e) => { const b = e.target.closest('[data-filter]'); if (b) { filter = b.dataset.filter; draw(); } });
+    $('#list').addEventListener('click', async (e) => {
+      const copy = e.target.closest('[data-copy]');
+      if (copy) {
+        try { await navigator.clipboard.writeText(copy.dataset.copy); toast('복사했어요'); }
+        catch { const s = getSelection(); const rg = document.createRange(); rg.selectNodeContents(copy); s.removeAllRanges(); s.addRange(rg); }
+        return;
+      }
+      const st = e.target.closest('[data-status]');
+      if (st && !st.disabled) {
+        try { await api('PATCH', '', { table: view, id: Number(st.dataset.id), status: st.dataset.status }); toast(`‘${st.dataset.status}’(으)로 바꿨어요`); load(); }
+        catch (err) { toast(err.message); }
+        return;
+      }
+      const del = e.target.closest('[data-del]');
+      if (del && confirm('이 후기를 삭제할까요? 되돌릴 수 없어요.')) {
+        try { await api('DELETE', '', { table: 'reviews', id: Number(del.dataset.del) }); toast('삭제했어요'); load(); }
+        catch (err) { toast(err.message); }
+      }
+    });
+    $('#csv').addEventListener('click', () => {
+      const cols = [['created_at', '접수일'], ['status', '상태'], ['org', '기관명'], ['name', '담당자'], ['email', '이메일'], ['phone', '연락처'], ['inquiry_type', '의뢰 유형'], ['schedule', '희망 일정'], ['audience', '대상·인원'], ['topic', '희망 주제'], ['budget', '예상 예산'], ['message', '의뢰 내용']];
+      const list = filter === '전체' ? rows : rows.filter((r) => r.status === filter);
+      const cell = (v) => `"${String(v ?? '').replace(/"/g, '""')}"`;
+      const csv = '﻿' + [cols.map((c) => cell(c[1])).join(','), ...list.map((r) => cols.map(([k]) => cell(k === 'created_at' ? fmt(r[k]) : r[k])).join(','))].join('\r\n');
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+      a.download = `inquiries_${new Date().toISOString().slice(0, 10)}.csv`;
+      a.click(); URL.revokeObjectURL(a.href);
+    });
+
+    if (pw()) load(); else $('#pw').focus();
+  })();
+  </script>
+</body>
+</html>

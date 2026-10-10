@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>강연·집필·협업 문의 — 미술 경험치 연구소</title>
+  <meta name="description" content="학교·교육청·도서관·미술관·출판사·문화예술기관의 강연, 출강, 연수, 집필, 교육 프로그램 개발 의뢰.">
+  <meta property="og:title" content="강연·집필·협업 문의 — 미술 경험치 연구소">
+  <meta property="og:description" content="학교·교육청·도서관·미술관·출판사·문화예술기관의 강연, 출강, 연수, 집필, 교육 프로그램 개발 의뢰.">
+  <meta name="theme-color" content="#561E26">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hahmlet:wght@300..700&family=Pinyon+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip" href="#main">본문으로 건너뛰기</a>
+  <header id="site-header"></header>
+
+  <main id="main">
+    <header class="page-head">
+      <div class="wrap">
+        <p class="script-title" aria-hidden="true">Correspondence</p>
+        <h1>강연·집필·협업 문의</h1>
+        <p class="lede">아는 만큼만 적어 주셔도 괜찮아요. 내용을 확인한 뒤 남겨 주신 이메일로 회신드립니다.</p>
+      </div>
+    </header>
+
+    <section class="section" style="padding-top:0">
+      <div class="wrap two-col">
+        <aside>
+          <h2 style="font-size:22px;margin-bottom:16px">이런 일을 함께합니다</h2>
+          <ul class="plain-list">
+            <li>미술 인문학 강연, 저자와의 만남</li>
+            <li>학교 출강, 교사 연수</li>
+            <li>원고 집필, 교과서 및 교육 콘텐츠 집필</li>
+            <li>미술교육 프로그램 개발</li>
+          </ul>
+          <p class="muted" style="font-size:15px;margin-top:20px">강연료와 조건은 기관 상황에 맞춰 협의합니다.</p>
+        </aside>
+        <div class="form-panel">
+          <form id="contact-form" novalidate>
+            <div class="grid-2">
+              <div class="field"><label for="org">기관명</label><input type="text" id="org" name="org" maxlength="80" required autocomplete="organization"></div>
+              <div class="field"><label for="name">담당자 이름</label><input type="text" id="name" name="name" maxlength="40" required autocomplete="name"></div>
+              <div class="field"><label for="email">이메일</label><input type="email" id="email" name="email" maxlength="120" required autocomplete="email"></div>
+              <div class="field"><label for="phone">연락처<span class="opt">선택</span></label><input type="tel" id="phone" name="phone" maxlength="30" autocomplete="tel"></div>
+            </div>
+            <fieldset class="field">
+              <legend>의뢰 유형</legend>
+              <div class="chips">
+                <label><input type="radio" name="inquiry_type" value="미술 인문학 강연"> 미술 인문학 강연</label>
+                <label><input type="radio" name="inquiry_type" value="학교 출강"> 학교 출강</label>
+                <label><input type="radio" name="inquiry_type" value="교사 연수"> 교사 연수</label>
+                <label><input type="radio" name="inquiry_type" value="저자와의 만남"> 저자와의 만남</label>
+                <label><input type="radio" name="inquiry_type" value="원고 집필"> 원고 집필</label>
+                <label><input type="radio" name="inquiry_type" value="교과서 및 교육 콘텐츠 집필"> 교과서 및 교육 콘텐츠 집필</label>
+                <label><input type="radio" name="inquiry_type" value="미술교육 프로그램 개발"> 미술교육 프로그램 개발</label>
+                <label><input type="radio" name="inquiry_type" value="기타 협업"> 기타 협업</label>
+              </div>
+            </fieldset>
+            <div class="grid-2">
+              <div class="field"><label for="schedule">희망 일정<span class="opt">선택</span></label><input type="text" id="schedule" name="schedule" maxlength="100" placeholder="예: 11월 중 평일 오후"></div>
+              <div class="field"><label for="audience">참여 대상과 예상 인원<span class="opt">선택</span></label><input type="text" id="audience" name="audience" maxlength="100" placeholder="예: 중학교 교사 30명"></div>
+            </div>
+            <div class="field"><label for="topic">희망 주제<span class="opt">선택</span></label><input type="text" id="topic" name="topic" maxlength="120"></div>
+            <div class="field">
+              <label for="budget">예상 예산<span class="opt">선택</span></label>
+              <select id="budget" name="budget">
+                <option value="">선택 안 함</option>
+                <option>미정·협의</option>
+                <option>기관 규정에 따름</option>
+                <option>의뢰 내용에 따로 적음</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">의뢰 내용 <span class="counter"></span></label>
+              <textarea id="message" name="message" maxlength="2000" required placeholder="행사 취지, 장소(온라인·오프라인), 원하는 진행 방식 등을 편하게 적어 주세요."></textarea>
+            </div>
+            <div class="field">
+              <label class="choice" style="margin:0"><input type="checkbox" name="consent"><span>개인정보 수집·이용에 동의합니다. (필수)</span></label>
+              <details class="consent-detail">
+                <summary>수집 항목과 보관 기간 보기</summary>
+                <p style="margin-top:8px">수집 항목: 기관명, 담당자 이름, 이메일, 연락처(선택)<br>이용 목적: 의뢰 확인과 회신, 일정·조건 협의<br>보관 기간: 문의 처리 완료 후 1년이 지나면 파기합니다.<br>동의하지 않으실 수 있으며, 이 경우 문의를 접수할 수 없습니다. <a class="text-link" href="/privacy">개인정보 처리방침</a></p>
+              </details>
+            </div>
+            <div class="hp" aria-hidden="true"><label>웹사이트<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <button class="btn" type="submit" style="width:100%">문의 보내기</button>
+            <p class="form-msg" role="alert"></p>
+          </form>
+          <div class="done" id="contact-done" hidden>
+            <h2>문의가 접수됐어요.</h2>
+            <p>내용을 확인한 뒤 남겨 주신 이메일로 연락드릴게요.</p>
+            <div class="btn-row" style="justify-content:center;margin-top:24px">
+              <a class="btn btn-line" href="/programs">강연 프로그램 보기</a>
+              <a class="btn btn-line" href="/library">작가의 서재 보기</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer id="site-footer"></footer>
+  <script src="/assets/js/site.js" defer></script>
+</body>
+</html>
