@@ -53,10 +53,11 @@
   const searchUrl = (b) => `https://www.aladin.co.kr/search/wsearchresult.aspx?SearchTarget=Book&SearchWord=${encodeURIComponent(b.title)}`;
 
   const bookCover = (b, tag = 'button') => `
-    <${tag} class="book" data-cloth="${esc(b.cloth)}" ${tag === 'button' ? `type="button" data-book="${esc(b.id)}" aria-label="${esc(b.title)} 자세히 보기"` : ''}>
-      ${b.cover ? `<img class="cover" src="${esc(b.cover)}" alt="">` : ''}
-      <span><span class="t">${esc(b.title)}</span><span class="rule" style="display:block"></span><span class="c">${esc(b.category)}</span></span>
-      <span class="p">${esc(b.publisher)}</span>
+    <${tag} class="book${b.cover ? ' has-cover' : ''}" data-cloth="${esc(b.cloth)}" ${tag === 'button' ? `type="button" data-book="${esc(b.id)}" aria-label="${esc(b.title)} 자세히 보기"` : ''}>
+      ${b.cover
+        ? `<img class="cover" src="${esc(b.cover)}" alt="『${esc(b.title)}』 표지" loading="lazy">`
+        : `<span><span class="t">${esc(b.title)}</span><span class="rule" style="display:block"></span><span class="c">${esc(b.category)}</span></span>
+      <span class="p">${esc(b.publisher)}</span>`}
       ${b.kind === 'upcoming' ? '<span class="badge">근간</span>' : ''}
     </${tag}>`;
 
